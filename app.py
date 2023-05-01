@@ -242,7 +242,7 @@ def final():
 @app.route("/treatment",methods=["POST","GET"])
 def treatment():
     treat_dis=request.form.get('dis','False')
-    workbook = openpyxl.load_workbook(r'/home/ubuntu/MediCURE-Disease-Prediction-based-on-Symptoms/cure minor.xlsx')
+    workbook = openpyxl.load_workbook(r'/home/ubuntu/MediCURE-Disease-Prediction-based-on-Symptoms/cure_minor.xlsx')
     worksheet = workbook['Sheet1']
     #arr2=[]
     ans=[]
