@@ -16,7 +16,7 @@ from itertools import combinations
 from time import time
 from collections import Counter
 import operator
-from xgboost import XGBClassifier
+#from xgboost import XGBClassifier
 import math
 import pickle
 import openpyxl
