@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,8 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>MediCure-  Learning-based solution for disease prediction using symptoms</title>
-  
+  <title>MediCURE - Machine Learning based solution for disease prediction using symptoms</title>
+  <link rel="icon" type="image/ico" href="static/img/cardiogram.ico">
 
   <link rel="stylesheet" href="../static/css/maicons.css">
 
@@ -20,7 +21,93 @@
   <link rel="stylesheet" href="../static/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="../static/css/theme.css">
+
+  <style>
+    .main-body {
+      padding: 20px;
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    /* Add a background image */
+    body {
+      background-image: url('https://images.unsplash.com/photo-1571774980210-99e8c7a14c08');
+      background-size: cover;
+    }
+
+    /* Add some styles to the form */
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+      color: lightseagreen;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    /* Add some styles to the back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: grey;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-top:hover {
+      background-color: #0056b3;
+    }
+
+
+  .symptoms-box {
+    height: 400px;
+    border: 20px rgb(28, 26, 26);
+    overflow: auto;
+    padding: 40px;
+  }
+
+  .main-body {
+    padding: 20px;
+    margin: 20px;
+  }
+</style>
+
 </head>
+
 <body>
 
   <!-- Back to top button -->
@@ -32,26 +119,19 @@
         <div class="row">
           <div class="col-sm-8 text-sm">
             <div class="site-info">
-              <a href="#"><span class="mai-mail text-primary"></span> rashi29.agarwal@gmail.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> UPES</a>
             </div>
           </div>
-          <!-- <div class="col-sm-4 text-right text-sm">
-            <div class="social-mini-button">
-              <a href="#"><span class="mai-logo-facebook-f"></span></a>
-              <a href="#"><span class="mai-logo-twitter"></span></a>
-              <a href="#"><span class="mai-logo-dribbble"></span></a>
-              <a href="#"><span class="mai-logo-instagram"></span></a>
-            </div>
-          </div> -->
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- .topbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: rgb(239, 238, 238);">
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">Medi</span>CURE</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
+          aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -66,54 +146,43 @@
             <li class="nav-item">
               <a class="nav-link" href="demo">Disease Detection</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Know about your health</a>
-            </li> -->
-
           </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
     </nav>
-    <style>
-          .button {
-      background-color: #000000;
-      color: white;
-      padding: 14px 28px;
-      font-size: 16px;
-      cursor: pointer;
-      text-align: center;
-      border-radius: 15%;
-      position: absolute;
-      bottom: 10%;
-      right: 10%;
-    }
+<style>
+
     </style>
   </header>
+
   <body>
-    <p>Based on your symptoms, you may be experiencing the following:</p>
-    <form action="/next" method="post">
-    <ol>
-        {% for idx, symp in found_symptoms %}
-        {{idx}}:{{ symp }}
-        <br>
-        {% endfor %}
-    </ol>
-    <p>Common co-occuring symptoms:</p>
-    {%if count==dict_symp_tup %}
-    {% for idx, symp in another_symptoms %}
-    {{idx}}:{{ symp }}
-    <br>
-    {% endfor %}
+    <div class="main-body"style="align-items: center;">
+      
+      <form action="/next" method="post">
+        <p>Based on your symptoms, you may be experiencing the following:</p>
+          {% for idx, symp in found_symptoms %}
+          {{idx + 1}} - {{ symp }}
+          <br>
+          {% endfor %}
+          <br>
+          <p>Common co-occuring symptoms:</p>
+        <div class="symptoms-box" style="border: 50px;">
+          {%if count==dict_symp_tup %}
+          {% for idx, symp in another_symptoms %}
+          {{idx + 1}} - {{ symp }}
+          <br>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <label style="padding:20px; padding-left: 37%;" for="relevance">Please enter symptoms separated by commas(,) without spaces:</label>
+        <div style="padding-bottom:20px; padding-left: 44%;">
+          <input style="padding-left: 20px;" type="text" name="relevance"><br>
+        </div>
+        <div style="padding-left: 49%;">
+          <input type="submit" value="Submit" style="background-color: lightgreen;">
+        </div>
+      </form>
+    </div>
 
-    
-    {% endif %}
-    
-    <label for="relevance">Please select the relevant symptoms. Enter indices (separated-space) :</label><br>
-    <input type="text" name="relevance"><br>
-    <input type="submit" value="Submit">
-
-    
-        
-  </form>
 
   </body>

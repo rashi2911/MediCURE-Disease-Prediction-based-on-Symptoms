@@ -1,26 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
-
-  <title>MediCure-  Learning-based solution for disease prediction using symptoms</title>
-  
-
+  <title>MediCURE - Machine Learning based solution for disease prediction using symptoms</title>
+  <link rel="icon"
+  type="image/ico"
+  href="static/img/cardiogram.ico">
   <link rel="stylesheet" href="../static/css/maicons.css">
-
   <link rel="stylesheet" href="../static/css/bootstrap.css">
-
   <link rel="stylesheet" href="../static/vendor/owl-carousel/css/owl.carousel.css">
-
   <link rel="stylesheet" href="../static/vendor/animate/animate.css">
-
   <link rel="stylesheet" href="../static/css/theme.css">
+
+
+  <style>
+    /* Add some padding to the body */
+    .main-body {
+      padding: 20px;
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    /* Add a background image */
+    body {
+      background-image: url('https://images.unsplash.com/photo-1571774980210-99e8c7a14c08');
+      background-size: cover;
+    }
+
+    /* Add some styles to the form */
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+      color: lightseagreen;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    /* Add some styles to the back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: grey;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-top:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Back to top button -->
@@ -32,26 +102,19 @@
         <div class="row">
           <div class="col-sm-8 text-sm">
             <div class="site-info">
-              <a href="#"><span class="mai-mail text-primary"></span> rashi29.agarwal@gmail.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> UPES</a>
             </div>
           </div>
-          <!-- <div class="col-sm-4 text-right text-sm">
-            <div class="social-mini-button">
-              <a href="#"><span class="mai-logo-facebook-f"></span></a>
-              <a href="#"><span class="mai-logo-twitter"></span></a>
-              <a href="#"><span class="mai-logo-dribbble"></span></a>
-              <a href="#"><span class="mai-logo-instagram"></span></a>
-            </div>
-          </div> -->
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- .topbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: rgb(239, 238, 238);">
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">Medi</span>CURE</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
+          aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -64,43 +127,48 @@
               <a class="nav-link" href="about">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="predict">Disease Detection</a>
+              <a class="nav-link" href="demo">Disease Detection</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Know about your health</a>
-            </li> -->
 
           </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
     </nav>
     <style>
-          .button {
-      background-color: #000000;
-      color: white;
-      padding: 14px 28px;
-      font-size: 16px;
-      cursor: pointer;
-      text-align: center;
-      border-radius: 15%;
-      position: absolute;
-      bottom: 10%;
-      right: 10%;
-    }
+      .button {
+        background-color: #000000;
+        color: white;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 15%;
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+
+      }
     </style>
   </header>
-  <body>
 
-        <form action="{{ url_for('final') }}" method="post">
-        <h3> Final symptoms!</h3>
+  <body>
+    <br>
+    <br>
+    <br>
+    <div class="main-body" style="text-align: center;">
+      <form action="{{ url_for('final') }}" method="post">
+        <h3> Final symptoms Used for Prediction!</h3>
         <ul>
           {% for idx, symp in my_var2 %}
-          {{idx}}:{{ symp }}
+          {{idx + 1}} - {{ symp }}
           <br>
           {% endfor %}
         </ul>
+        
+        <input type="submit" value="Submit" style="background-color: lightgreen;">
+      </form>
+      <br>
+      
+    </div>
 
-      <input type="submit" value="Submit">
-    </form>
- 
   </body>

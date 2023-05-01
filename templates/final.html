@@ -8,8 +8,10 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>MediCure-  Learning-based solution for disease prediction using symptoms</title>
-  
+  <title>MediCURE - Machine Learning based solution for disease prediction using symptoms</title>
+  <link rel="icon"
+      type="image/ico"
+      href="static/img/cardiogram.ico">
 
   <link rel="stylesheet" href="../static/css/maicons.css">
 
@@ -20,6 +22,98 @@
   <link rel="stylesheet" href="../static/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="../static/css/theme.css">
+
+<style>
+
+  /* Main styles */
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .container-boxing {
+
+    margin: 0 auto;
+    font-size: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0069D9;
+  }
+
+  /* Images */
+
+  .img-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .img-container img {
+    max-width: 200px;
+    margin: 0 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  /* Media queries */
+
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 24px;
+    }
+
+    .container-boxing {
+      padding: 10px;
+    }
+
+    input[type="text"] {
+      max-width: 100%;
+    }
+  }
+</style>
+
+
+
 </head>
 <body>
 
@@ -32,7 +126,7 @@
         <div class="row">
           <div class="col-sm-8 text-sm">
             <div class="site-info">
-              <a href="#"><span class="mai-mail text-primary"></span> rashi29.agarwal@gmail.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> UPES</a>
             </div>
           </div>
           <!-- <div class="col-sm-4 text-right text-sm">
@@ -90,19 +184,31 @@
     </style>
   </header>
   <body>
-    <form action="{{ url_for('treatment') }}" method="post">
+    <div class="container-boxing">
+      <br>
+      <br>
+      <form action="{{ url_for('treatment') }}" method="post">
+        <p>Final symptoms that will be used for prediction:</p>
+        <ol>
+          {% for x in arr %}
+          {{x}}
+          <br>
+          {% endfor %}
+          
+        </ol>
+        <label for="relevance">Please select the relevant disease:</label>
+        <input type="text" name="dis">
+        <input type="submit" value="Submit">
+      </form>
+    
+      <div class="img-container">
+        <img src="../static/img/symp1.jpg" alt="">
+        <img src="../static/img/symp2.jpg" alt="">
+        <img src="../static/img/symp3.jpg" alt="">
 
-    <p>Final symptoms that will be used for prediction:</p>
-    <ol>
-     {% for x in arr %}
-     {{x}}
-     <br>
-     {% endfor %}
-
-    </ol>
-    <label for="relevance">Please select the relevant disease :</label><br>
-    <input type="text" name="dis"><br>
-    <input type="submit" value="Submit">
-  </form>
+      </div>
+      <br>
+      <br>
+    </div>
  
 </body>
