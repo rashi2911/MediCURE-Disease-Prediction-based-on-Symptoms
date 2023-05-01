@@ -234,7 +234,7 @@ def final():
 
     for key in topk_sorted:
         prob = topk_sorted[key]*100
-        arr.append(f' Disease name: {diseases[key]}\t Probability: {str(round(prob, 2))}%')
+        arr.append(f' Disease name: {diseases[key]}')
         #arr[i]=diseases[key]
         #i=i+1
     
