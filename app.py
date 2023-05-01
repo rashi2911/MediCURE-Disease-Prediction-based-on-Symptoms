@@ -62,8 +62,8 @@ def similarity(dataset_symptoms,user_symptoms):
     return found_symptoms
  
 def preprocess(user_symptoms):
-    df_comb = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_comb.csv") # Disease combination
-    df_norm = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
+    df_comb = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_comb.csv") # Disease combination
+    df_norm = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
 
     X = df_comb.iloc[:, 1:] #symptoms
     Y = df_comb.iloc[:, 0:1] #diseases
@@ -107,8 +107,8 @@ def demo():
 
 @app.route("/predict",methods=["POST","GET"])
 def predict():
-    df_comb = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_comb.csv") # Disease combination
-    df_norm = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
+    df_comb = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_comb.csv") # Disease combination
+    df_norm = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
     X = df_comb.iloc[:, 1:] #symptoms
     Y = df_comb.iloc[:, 0:1] #diseases
     dataset_symptoms = list(X.columns)
@@ -167,8 +167,8 @@ def next():
     count=session.get('count',None)
     #dataset_symptoms=session.get('dataset_symptoms',None)
     x=session.get('tup',None)
-    df_comb = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_comb.csv") # Disease combination
-    df_norm = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
+    df_comb = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_comb.csv") # Disease combination
+    df_norm = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
     X = df_comb.iloc[:, 1:] #symptoms
     Y = df_comb.iloc[:, 0:1] #diseases
     dataset_symptoms = list(X.columns)
@@ -188,8 +188,8 @@ def next():
 def final():
     sample_x=session.get('sample_x')
     print("samplexxxxxxxxx",sample_x)
-    df_comb = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_comb.csv") # Disease combination
-    df_norm = pd.read_csv("F:\SEM 6\Minor-2\Disease-Detection-based-on-Symptoms-master\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
+    df_comb = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_comb.csv") # Disease combination
+    df_norm = pd.read_csv("\home\ubuntu\MediCURE-Disease-Prediction-based-on-Symptoms\Dataset\dis_sym_dataset_norm.csv") # Individual Disease
     #dataset_symptoms=session.get('dataset_symptoms',None)
     X = df_comb.iloc[:, 1:] #symptoms
     Y = df_comb.iloc[:, 0:1] #diseases
